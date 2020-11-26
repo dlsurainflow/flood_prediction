@@ -18,6 +18,7 @@ function onClickChangeDataFreq(freq) {
 }
 
 function onClickFetchData() {
+ 
   const data = [
     {
       time: "2020-11-12 00:00:00",
@@ -233,8 +234,8 @@ function onClickFetchData() {
     },
   ];
 
-  let ticker = document.getElementById("input_ticker").value;
-  let apikey = document.getElementById("input_apikey").value;
+  let ticker = "MSFT";
+  let apikey = "demo";
 
   $("#btn_fetch_data").hide();
   $("#load_fetch_data").show();
@@ -284,7 +285,7 @@ function onClickFetchData() {
   // message =
   // "Symbol: " + symbol + " (last refreshed " + last_refreshed + ")";
   // message = data["data"]["iso"] + " (" + data["data"]["name"] + ")";
-  message = "testing";
+  //message = "testing";
   $("#btn_fetch_data").show();
   $("#load_fetch_data").hide();
   $("#div_linegraph_data_title").text(message);
@@ -307,12 +308,14 @@ function onClickFetchData() {
 
   data_raw = data;
 
-  $("#div_container_getsma").show();
+ // $("#div_container_getsma").show();
   $("#div_container_getsmafirst").hide();
   // } else {
   //   $("#div_linegraph_data").text(data["Information"]);
   // }
   // });
+
+  onClickDisplaySMA()
 }
 
 function onClickDisplaySMA() {
@@ -320,7 +323,7 @@ function onClickDisplaySMA() {
   $("#load_draw_sma").show();
   $("#div_container_sma").show();
 
-  window_size = parseInt(document.getElementById("input_windowsize").value);
+ // window_size = parseInt(document.getElementById("input_windowsize").value);
   window_size = 1;
   // console.log(data_raw);
   sma_vec = ComputeSMA(data_raw, window_size);
@@ -364,6 +367,7 @@ function onClickDisplaySMA() {
   $("#div_container_trainfirst").hide();
 
   displayTrainingData();
+  onClickTrainModel();
 }
 
 function displayTrainingData() {
@@ -418,14 +422,18 @@ async function onClickTrainModel() {
     return outp_f["avg"];
   });
 
-  trainingsize = parseInt(document.getElementById("input_trainingsize").value);
-  let n_epochs = parseInt(document.getElementById("input_epochs").value);
-  let learningrate = parseFloat(
-    document.getElementById("input_learningrate").value
-  );
-  let n_hiddenlayers = parseInt(
-    document.getElementById("input_hiddenlayers").value
-  );
+  // trainingsize = parseInt(document.getElementById("input_trainingsize").value);
+  // let n_epochs = parseInt(document.getElementById("input_epochs").value);
+  // let learningrate = parseFloat(
+  //   document.getElementById("input_learningrate").value
+  // );
+  // let n_hiddenlayers = parseInt(
+  //   document.getElementById("input_hiddenlayers").value
+  // );
+  trainingsize = 98;
+  let n_epochs = 10;
+  let learningrate = 0.01;
+  let n_hiddenlayers = 4;
 
   inputs = inputs.slice(0, Math.floor((trainingsize / 100) * inputs.length));
   outputs = outputs.slice(0, Math.floor((trainingsize / 100) * outputs.length));
@@ -486,6 +494,8 @@ async function onClickTrainModel() {
   $("#div_container_validatefirst").hide();
   $("#div_container_predict").show();
   $("#div_container_predictfirst").hide();
+
+  onClickValidate();
 }
 
 function onClickValidate() {
@@ -575,6 +585,7 @@ function onClickValidate() {
   );
 
   $("#load_validating").hide();
+  onClickPredict();
 }
 
 async function onClickPredict() {
