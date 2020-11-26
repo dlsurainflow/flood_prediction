@@ -18,7 +18,7 @@
     gtag('config', 'UA-49548145-2');
   </script>
   <style>
-    /* The dropdown container */
+
 .dropdown {
   position: absolute;
   left: 120px;
@@ -29,7 +29,7 @@
   background-color: transparent;
 }
 
-/* Dropdown button */
+
 .dropdown .dropbtn {
   z-index: 998;
   font-size: 14px;
@@ -37,17 +37,17 @@
   outline: none;
   color: white;
   background-color: transparent;
-  font-family: inherit; /* Important for vertical align on mobile phones */
-  margin: 0; /* Important for vertical align on mobile phones */
+  font-family: inherit;
+  margin: 0; 
 }
 
-/* Add a red background color to navbar links on hover */
+
 .navbar a:hover, .dropdown:hover .dropbtn, .dropbtn:focus {
   background-color: transparent;
 }
 
 
-/* Dropdown content (hidden by default) */
+
 .dropdown-content {
   display: none;
   background-color: #fff;
@@ -57,7 +57,7 @@
   overflow: hidden;
 }
 
-/* Links inside the dropdown */
+
 .dropdown-content a {
   float: none;
   color: black;
@@ -67,7 +67,7 @@
   text-align: left;
 }
 
-/* Add a grey background color to dropdown links on hover */
+
 .dropdown-content a:hover {
   background-color: #ddd;
 }
@@ -106,13 +106,10 @@
               </div>
         </a>
 
-<!--
-  <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 
--->
       </div>
     </nav>
-   <!-- <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>-->
+  
   </div>
   <ul id="slide-out" class="sidenav">
     <li><a href="https://jinglescode.github.io/" class="tooltipped" data-position="top" data-tooltip="Blog"><i class="fas fa-blog"></i><span id="menu-text">Blog</span></a></li>
@@ -166,12 +163,7 @@
     <div class="card" id="div_sma">
       <div class="card-content">
         <span class="card-title">Simple Moving Average</span>
-      
-        <!-- <div class="row" id="div_container_getsmafirst">
-          <div class="col s12">
-            <p>First, <a href="#div_data">fetch flood data</a> from the previous step.</p>
-          </div>
-        </div> -->
+    
 
         <div class="row" id="div_container_getsma" style="display:none">
           <div class="col s6">
@@ -255,22 +247,10 @@
     <div class="card">
       <div class="card-content">
         <span class="card-title">Validation</span>
-        <!-- <p>Here we use the remaining data for prediction which allow us to see how closely our predicted values are compared to the actual values.</p>
-        <p>But if the model did not predict values that map closely to its true values, check the training loss graph. Generally, this model should converge with the loss to be less than 1. You can increase the number of epochs, or tweak the other learning hyperparameters.</p>
-
-        <div class="row" id="div_container_validatefirst">
-          <div class="col s12">
-            <p>Don’t have a model to perform prediction? <a href="#div_train">Train your model</a>.</p>
-          </div>
-        </div> -->
+    
 
         <div class="row" id="div_container_validate" style="display:none">
-          <!-- <div class="col s12">
-            <p>
-             
-              Hit the <i>Validate Model</i> button to see how this model performs.
-            </p>
-          </div> -->
+       
           <div class="col s6">
             <button class="waves-effect waves-light btn" id="btn_validation" onclick="onClickValidate()">Validate Model</button>
             <div class="spinner-border" id="load_validating" style="display:none"></div>
@@ -296,12 +276,7 @@
         <span class="card-title">Make Prediction</span>
      
         <div class="row" id="div_container_predict" style="display:none">
-          <!-- <div class="col s12">
-            <p>
-           
-              Hit the <i>Make Prediction</i> button.
-            </p>
-          </div> -->
+         
           <div class="col s6">
             <button class="waves-effect waves-light btn" id="btn_prediction" onclick="onClickPredict()">Make Prediction</button>
             <div class="spinner-border" id="load_predicting" style="display:none"></div>
